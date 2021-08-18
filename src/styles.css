@@ -3,6 +3,41 @@
 @import '~ngx-toastr/toastr';
 
 body {
-    font-size: 0.7rem;
-    font-family: sans-serif, Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(73, 73, 73);
+}
+
+h3 {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+    background-color: rgb(17, 16, 16)!important;
+    padding-left: 2rem;
+}
+
+.navbar .nav-link {
+    color: white!important;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.navbar .nav-link:hover {
+    color: rgb(241, 227, 31)!important;
+}
+
+.header-text {
+    color: #fff;
+}
+
+table {
+    background-color: rgb(236, 236, 236);
+}
+
+table tr:hover {
+    background-color:#99b4c5;
+    color: white;
+    cursor: pointer;
 }

@@ -20,4 +20,16 @@ export class CarService {
   list() {
     return this.httpClient.get(this.urlApi + '/veiculos');
   }
+
+  show(id:any):Observable<any> {
+    return this.httpClient.get(this.urlApi + '/veiculos/' + id);
+  }
+
+  update(body:any, id:any) {
+    return this.httpClient.put(this.urlApi + '/veiculos/' + id, body);
+  }
+
+  delete(id:any) {
+    return this.httpClient.delete(this.urlApi + '/veiculos/' + id);
+  }
 }

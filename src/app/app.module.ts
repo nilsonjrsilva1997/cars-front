@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

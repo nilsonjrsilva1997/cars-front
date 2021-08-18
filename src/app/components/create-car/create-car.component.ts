@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CarService } from 'src/app/services/car.service';
+import { FipeService } from 'src/app/services/fipe.service';
 
 @Component({
   selector: 'app-create-car',
@@ -11,9 +12,11 @@ import { CarService } from 'src/app/services/car.service';
 export class CreateCarComponent implements OnInit {
 
   public soldForm:any;
+  public brands:any;
+  public brandForm:any;
 
   form = new FormGroup({
-    brand: new FormControl('', Validators.required),
+    brand: new FormControl(''),
     description: new FormControl('', Validators.required),
     sold: new FormControl(null),
     vehicle: new FormControl('', Validators.required),
@@ -22,12 +25,19 @@ export class CreateCarComponent implements OnInit {
 
   constructor(
     private carService:CarService,
-    private toastrService:ToastrService
+    private toastrService:ToastrService,
+    private fipeService:FipeService
     ) {
       this.soldForm = null;
+      this.brandForm = null;
   }
 
   ngOnInit(): void {
+    this.fipeService.list().subscribe(res => {
+      this.brands = res;
+    }, err => {
+      this.toastrService.error('Erro ao buscar marca de carros');
+    });
   }
 
   save(event:any) {
@@ -38,7 +48,13 @@ export class CreateCarComponent implements OnInit {
       return;
     }
 
+    if(this.brandForm == null && this.brandForm == "null") {
+      this.toastrService.warning('Selecione a marca do veículo');
+      return;
+    }
+
     this.form.value.sold = this.soldForm;
+    this.form.value.brand = this.brandForm;
 
     this.carService.save(this.form.value).subscribe(res => {
       this.toastrService.success('Veículo salvo com sucesso');
@@ -50,9 +66,6 @@ export class CreateCarComponent implements OnInit {
         vehicle: new FormControl('', Validators.required),
         year: new FormControl('', Validators.required),
       });
-
-      this.form.addControl('sold', new FormControl(this.soldForm));
-
       
     }, err => {
       console.log(err);
@@ -75,6 +88,10 @@ export class CreateCarComponent implements OnInit {
     if(event.path[0].attributes.value.value == "false") {
       this.soldForm = false;
     } 
+  }
+
+  listBrands(event:any) {
+    this.brandForm = event.path[0].value;
   }
 
 }
