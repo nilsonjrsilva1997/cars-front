@@ -16,4 +16,8 @@ export class CarService {
   save(data:any):Observable<any> {
     return this.httpClient.post(this.urlApi + '/veiculos', data);
   }
+
+  list() {
+    return this.httpClient.get(this.urlApi + '/veiculos');
+  }
 }

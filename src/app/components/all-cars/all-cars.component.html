@@ -1,3 +1,5 @@
+<h3 class="text-center">Carros do sistema</h3>
+
 <table class="table">
     <thead>
         <tr>
@@ -12,59 +14,18 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-        </tr>
 
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-        </tr>
-
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-        </tr>
-
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-        </tr>
-
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-        </tr>
+    <tr *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: paginaAtual }; let i = index">
+        <th scope="row">{{ item.id }}</th>
+        <td>{{ item.vehicle }}</td>
+        <td>{{ item.brand }}</td>
+        <td>{{ item.year }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.sold }}</td>
+        <td>{{ item.created }}</td>
+        <td>{{ item.updated }}</td>
+    </tr>
     </tbody>
+    <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo">
+    </pagination-controls>
 </table>
