@@ -68,7 +68,6 @@ export class CreateCarComponent implements OnInit {
       });
       
     }, err => {
-      console.log(err);
       for (let i = 0; i < err.error.length; i++) {
         const element = err.error[i];
 
