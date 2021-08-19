@@ -9,6 +9,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
+        <a href="#" (click)="selection.value = 'home'" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item active">
         <a href="#" (click)="selection.value = 'create-car'" class="nav-link">Novo Carro</a>
       </li>
       <li class="nav-item">
@@ -20,6 +23,12 @@
 
 <div class="content" role="main">
   <input type="hidden" #selection>
+
+  <div class="" [ngSwitch]="selection.value">
+      <pre *ngSwitchCase="'home'">
+        <app-home></app-home>
+      </pre>
+  </div>
 
   <div class="" [ngSwitch]="selection.value">
       <pre *ngSwitchCase="'create-car'">

@@ -44,6 +44,7 @@
         <form [formGroup]="form">
             <div class="row">
                 <div class="col-md-12">
+                    <label>Veículo</label>
                     <input type="text" class="form-control" placeholder="Veículo" formControlName="vehicle"/>
                     <div class="alert alert-danger mt-1" *ngIf="form.controls.vehicle?.errors?.required">Veículo é obrigatório.</div>
                 </div>
@@ -56,10 +57,12 @@
 
             <div class="row mt-3">
                 <div class="col-md-12">
+                    <label>Ano</label>
                     <input type="text" class="form-control" placeholder="Ano" formControlName="year"/>
                     <div class="alert alert-danger mt-1" *ngIf="form.controls.year?.errors?.required">O ano é obrigatório.</div>
                 </div>
                 <div class="col-md-12 mt-3">
+                    <label>Descrição</label>
                     <input type="text" class="form-control" placeholder="Descrição" formControlName="description"/>
                     <div class="alert alert-danger mt-1" *ngIf="form.controls.description?.errors?.required">A descrição é obrigatória.</div>
                 </div>
