@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class HomeService {
 
-  urlApi = 'http://localhost:8080/veiculos/';
+  urlApi = 'http://localhost:8182/veiculos/';
 
   constructor(private httpClient:HttpClient) { }
 
